@@ -23,7 +23,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 		final SampleModel sampleModel = new SampleModel();
 		sampleModel.setName("CodePath");
 
-		sampleModelDao = ((TwitterApp) getApplicationContext()).getMyDatabase().sampleModelDao();
+		sampleModelDao = ((TwitterApplication) getApplicationContext()).getMyDatabase().sampleModelDao();
 
 		AsyncTask.execute(new Runnable() {
 			@Override
@@ -45,10 +45,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
-		/*
-		Notes: Intent is used to navigate to a new window after a certain condition has been met.
-		 */
-		Log.i("dsfg","login success");
+
 		 Intent i = new Intent(this, TimelineActivity.class);
 		 startActivity(i);
 
