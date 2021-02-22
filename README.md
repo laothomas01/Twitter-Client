@@ -104,7 +104,6 @@ Here's a walkthrough of implemented user stories:
 
 <img src='TwitterDemoPart2.gif' title='TwitterDemo:Part2 Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='TwitterDemoPart2CharacterCount.gif' title='TwitterDemo:Part2 Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
