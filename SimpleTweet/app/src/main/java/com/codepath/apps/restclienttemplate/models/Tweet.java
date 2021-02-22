@@ -10,11 +10,13 @@ import java.util.List;
 public class Tweet {
     public String body,createdAt;
     public User user;
+    public long id;
 //we want to pass in a jsonObject as a java Tweet object
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = jsonObject.getString("created_at");
+        tweet.id = jsonObject.getLong("id");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
 
         return tweet;
