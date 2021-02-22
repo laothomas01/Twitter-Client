@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -20,12 +23,13 @@ import okhttp3.Headers;
 
 public class ComposeActivity extends AppCompatActivity {
     public static final String TAG = "ComposeActivity";
-    public static final int MAX_TWEET_LENGTH = 140;
+    public static final int MAX_TWEET_LENGTH =  280;
 
     EditText etCompose;
     Button btnTweet;
-
     TwitterClient client;
+    EditText etComposeTweet;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +37,15 @@ public class ComposeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_compose);
 
         client = TwitterApplication.getRestClient(this);
-
-        etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+        etComposeTweet = findViewById(R.id.etComposeTweet);
+
         //Set a click listener
         btnTweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tweetContent = etCompose.getText().toString();
+//                String tweetContent = etCompose.getText().toString();
+                String tweetContent = etComposeTweet.getText().toString();
                 //ERROR HANDLING
                 if(tweetContent.isEmpty()) {
                     Toast.makeText(ComposeActivity.this, "Sorry, your tweet cannot be empty", Toast.LENGTH_LONG).show();
@@ -82,6 +87,7 @@ public class ComposeActivity extends AppCompatActivity {
 
             }
         });
+
 
 
     }
